@@ -1,0 +1,43 @@
+class Television:
+    def __init__(self):
+        self.is_on = False
+        self.channel = 1
+        self.volume = 10  # Default volume level
+    
+    def turn_on(self):
+        if not self.is_on:
+            self.is_on = True
+            print("The TV is now ON.")
+        else:
+            print("The TV is already ON.")
+    
+    def turn_off(self):
+        if self.is_on:
+            self.is_on = False
+            print("The TV is now OFF.")
+        else:
+            print("The TV is already OFF.")
+    
+    def change_channel(self, channel):
+        if self.is_on:
+            if 1 <= channel <= 100:
+                self.channel = channel
+                print(f"Channel is set to {self.channel}.")
+            else:
+                print("Invalid channel. Please select a channel between 1 and 100.")
+        else:
+            print("Turn on the TV first.")
+    
+    def adjust_volume(self, volume):
+        if self.is_on:
+            if 0 <= volume <= 100:
+                self.volume = volume
+                print(f"Volume is set to {self.volume}.")
+            else:
+                print("Invalid volume. Please set the volume between 0 and 100.")
+        else:
+            print("Turn on the TV first.")
+    
+    def get_status(self):
+        status = "ON" if self.is_on else "OFF"
+        print(f"TV Status: {status}, Channel: {self.channel}, Volume: {self.volume}")
